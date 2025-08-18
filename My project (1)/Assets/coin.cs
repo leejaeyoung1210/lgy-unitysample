@@ -3,7 +3,7 @@ using UnityEngine;
 public class coin : MonoBehaviour
 {
     private Rigidbody coinbody;
-    public int score;
+   static public int score;
     
 
     private void Start()
