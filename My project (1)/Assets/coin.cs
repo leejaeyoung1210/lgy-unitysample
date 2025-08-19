@@ -3,22 +3,23 @@ using UnityEngine;
 public class coin : MonoBehaviour
 {
     private Rigidbody coinbody;
-   static public int score;
-    
-
-    private void Start()
+    private GameManager manager;
+  
+        private void Start()
     {
         coinbody = GetComponent<Rigidbody>();   //ÀÚµ¿È­
-        Destroy(gameObject,5f);
+        manager = GetComponent<GameManager>();   
+        Destroy(gameObject, 5f);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            score += 10;
+            manager.Addcoin();
             Destroy(gameObject);
         }
+
     }
 
     void Update()

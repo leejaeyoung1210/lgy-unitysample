@@ -11,8 +11,8 @@ public class CubeSapawn : MonoBehaviour
 
     private float interval;
     private float timer;
-    private float speed = 7f;
-    Vector3 velocity = new Vector3();
+    //private float speed = 7f;
+    Vector3 spawnPos = new Vector3();
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class CubeSapawn : MonoBehaviour
         interval = Random.Range(spawnRateMin, spawnRateMax);
     }
 
-   
+
     void Update()
     {
         timer += Time.deltaTime;
@@ -31,7 +31,7 @@ public class CubeSapawn : MonoBehaviour
             timer = 0f;
             interval = Random.Range(spawnRateMin, spawnRateMax);
         }
-        
+
 
 
 
@@ -47,8 +47,8 @@ public class CubeSapawn : MonoBehaviour
         float x = Random.Range(min.x, max.x);
         float z = Random.Range(min.z, max.z);
 
-        Vector3 spawnPos = new Vector3(x, 10f, z);
-        Instantiate(cubePrefab, spawnPos,transform.rotation);
+        spawnPos.Set(x, 10f, z);
+        Instantiate(cubePrefab, spawnPos, transform.rotation);
         cubePrefab.SetActive(true);
 
     }
