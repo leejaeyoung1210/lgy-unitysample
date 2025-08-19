@@ -3,12 +3,11 @@ using UnityEngine;
 public class coin : MonoBehaviour
 {
     private Rigidbody coinbody;
-    private GameManager manager;
+   
   
         private void Start()
     {
-        coinbody = GetComponent<Rigidbody>();   //자동화
-        manager = GetComponent<GameManager>();   
+        coinbody = GetComponent<Rigidbody>();   //자동화          
         Destroy(gameObject, 5f);
     }
 
@@ -16,7 +15,7 @@ public class coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            manager.Addcoin();
+            GameManager.coincount++;
             Destroy(gameObject);
         }
 

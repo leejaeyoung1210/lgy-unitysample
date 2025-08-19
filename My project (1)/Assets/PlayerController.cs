@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody playerbody;
     public float speed = 8f;
+    
     //Vector3 velocity = new Vector3(xspeed, 0, zspeed);
     Vector3 velocity = new Vector3(0, 0, 0);
 
@@ -26,9 +27,7 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         gameObject.SetActive(false);
-
-        GameManager gameManager = gameObject.GetComponent<GameManager>();   
-
+        GameManager gameManager = FindFirstObjectByType<GameManager>(); 
         gameManager.EndGame();
     }
 

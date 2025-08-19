@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private float surviveTime;
     private bool isGameover;
 
-    private int coincount;
+    public static int coincount;
     public int score => coincount * 10;
 
     void Start()
@@ -73,6 +73,6 @@ public class GameManager : MonoBehaviour
         }
 
         besttimeText.text ="Best Time: " +(int)bestTime;
-        bestscoreText.text = "Best Score: " + (int)bestTime;
+        bestscoreText.text = "Best Score: " + (int)bestscore;
     }
 }
