@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody playerbody;
+    public GameObject gmObj;
+    public GameManager gameManager;
     public float speed = 8f;
     
     //Vector3 velocity = new Vector3(xspeed, 0, zspeed);
@@ -27,7 +29,10 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         gameObject.SetActive(false);
-        GameManager gameManager = FindFirstObjectByType<GameManager>(); 
+        gmObj = GameObject.FindWithTag("GameController");
+       
+        gameManager = gmObj.GetComponent<GameManager>();
+               
         gameManager.EndGame();
     }
 
